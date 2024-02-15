@@ -1,5 +1,39 @@
-@blue: #0ad10a;
+@blue: #0a17d1;
+@green: rgb(38, 226, 38);
+@background: beige;
+@width: 0.75;
 
-body p {
-    color: @blue;
+
+* {
+    margin: 20px;
+}
+
+body { 
+    background-color: @background;
+    b {
+        color: if(iscolor(@blue), @blue, purple); // functions
+        width: percentage(@width);
+    }
+}
+
+p {
+    .cores(20px, ''); // IFs
+}
+
+h1 {
+    .cores(30px, 'h1');
+}
+
+.cores(@tamanho, @tag) {   // Mixins
+    color: @green;
+    background-color: @blue * 0.5;
+    font-size: @tamanho;
+    & when (@tag = "h1") {
+        @color: @blue;
+        font-size: @tamanho + 30px; // Simple math
+        text-shadow: 2px 1px 1px red;
+    }
+    else {
+        text-shadow: 0px 0px 1px orange;
+    }
 }
